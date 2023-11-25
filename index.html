@@ -21,8 +21,7 @@
       var mapExtent = [0.00000000, -8640.00000000, 13208.00000000, 0.00000000];
       var mapMinZoom = 0;
       var mapMaxZoom = 4;
-      var mapMaxResolution = 2.00000000;
-      var mapMinResolution = Math.pow(2, mapMaxZoom) * mapMaxResolution;
+      var mapMinResolution = Math.pow(2, mapMaxZoom) * 2.00000000;
       var tileExtent = [0.00000000, -8640.00000000, 13208.00000000, 0.00000000];
       var crs = L.CRS.Simple;
       crs.transformation = new L.Transformation(1, -tileExtent[0], -1, tileExtent[3]);
@@ -39,7 +38,7 @@
           crs: crs
         });
         
-        layer = L.tileLayer('{z}/{x}/{y}.png', {
+        layer = L.tileLayer('https://thegoofyknight.github.io/Dawnlands-Map/{z}/{x}/{y}.png', {
           minZoom: mapMinZoom, maxZoom: mapMaxZoom,
           tileSize: L.point(512, 512),
           attribution: '<a href="https://www.maptiler.com/engine/">Rendered with MapTiler Engine</a>, non-commercial use only',
