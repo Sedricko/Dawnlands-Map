@@ -20,7 +20,7 @@
     <script type="text/javascript">
       var mapExtent = [0.00000000, -8640.00000000, 13208.00000000, 0.00000000];
       var mapMaxZoom = 3; // Set the maximum zoom level to 3
-      var mapMinZoom = 3; // Set the minimum zoom level to 3
+      var mapMinZoom = 0; // Set the minimum zoom level to 3
       var mapMinResolution = Math.pow(2, mapMaxZoom) * 2.00000000;
       var tileExtent = [0.00000000, -8640.00000000, 13208.00000000, 0.00000000];
       var crs = L.CRS.Simple;
@@ -35,7 +35,11 @@
       var map = new L.Map('map', {
           maxZoom: mapMaxZoom,
           minZoom: mapMinZoom,
-          crs: crs
+          crs: crs,
+          maxBounds: [
+            crs.unproject(L.point(mapExtent[2], mapExtent[3])),
+            crs.unproject(L.point(mapExtent[0], mapExtent[1]))
+          ]
         });
         
       layer = L.tileLayer('https://thegoofyknight.github.io/Dawnlands-Map/{z}/{x}/{y}.png', {
