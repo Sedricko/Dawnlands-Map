@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -59,33 +58,18 @@
 
       L.control.mousePosition().addTo(map);
 
-      // Define custom icons
-      var ancientMysticRiftIcon = L.icon({
-        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32]
-      });
-
+      // Custom icon for the Teleporters marker
       var teleportersIcon = L.icon({
-        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32]
+        iconUrl: 'https://imgur.com/km5vKFw',
+        iconSize: [32, 32], // Adjust the size of the icon if needed
+        iconAnchor: [16, 16], // Point of the icon which will correspond to marker's location
+        popupAnchor: [0, -16] // Point from which the popup should open relative to the iconAnchor
       });
 
-      var sheltersIcon = L.icon({
-        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-blue.png',
-        iconSize: [32, 32],
-        iconAnchor: [16, 32],
-        popupAnchor: [0, -32]
-      });
-
-      // Add markers with custom icons
-      L.marker([0, 0], {icon: ancientMysticRiftIcon}).addTo(map).bindPopup("<b>Ancient Mystic Rift</b>");
-      L.marker([0, -4000], {icon: teleportersIcon}).addTo(map).bindPopup("<b>Teleporters</b>");
-      L.marker([4000, -4000], {icon: sheltersIcon}).addTo(map).bindPopup("<b>Shelters</b>");
+      // Add Teleporters marker with custom icon
+      var teleporters = L.marker([-1951, 2650], { icon: teleportersIcon }).addTo(map);
+      teleporters.bindPopup("<b>Teleporters</b>");
     </script>
   </body>
 </html>
-```
+
